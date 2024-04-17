@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Register</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #2980B9, #6DD5FA);
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      box-shadow: 0 0 5px #4caf50;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="password"]::placeholder {
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus::placeholder,
+    input[type="password"]:focus::placeholder {
+      font-size: 12px;
+      transform: translateY(-8px);
+      color: #4caf50;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+      margin-top: 5px;
+      animation: shake 0.5s ease infinite;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-5px);
+      }
+      50% {
+        transform: translateX(5px);
+      }
+      75% {
+        transform: translateX(-5px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .toggle-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 20px;
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 480px) {
+      .container {
+        max-width: 300px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="formTitle">Login</h2>
+    <form id="loginForm">
+      <input type="text" id="loginUsername" placeholder="Username">
+      <input type="password" id="loginPassword" placeholder="Password">
+      <input type="submit" value="Login">
+      <p id="loginError" class="error"></p>
+    </form>
+    <form id="registerForm" style="display: none;">
+      <input type="text" id="registerUsername" placeholder="Username">
+      <input type="password" id="registerPassword" placeholder="Password">
+      <input type="submit" value="Register">
+      <p id="registerError" class="error"></p>
+    </form>
+    <button id="toggleForm" class="toggle-btn">Register</button>
+  </div>
+
+  <script>
+    const toggleButton = document.getElementById('toggleForm');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const formTitle = document.getElementById('formTitle');
+
+    toggleButton.addEventListener('click', function() {
+      if (loginForm.style.display === 'none') {
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+        formTitle.textContent = 'Login';
+        toggleButton.textContent = 'Register';
+      } else {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+        formTitle.textContent = 'Register';
+        toggleButton.textContent = 'Login';
+      }
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var username = document.getElementById('loginUsername').value;
+      var password = document.getElementById('loginPassword').value;
+      // Here you can add your login logic, like sending data to server for authentication
+      // For this example, let's just show an error message
+      document.getElementById('loginError').textContent = "Login functionality not implemented";
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var username = document.getElementById('registerUsername').value;
+      var password = document.getElementById('registerPassword').value;
+      // Here you can add your registration logic, like sending data to server for registration
+      // For this example, let's just show an error message
+      document.getElementById('registerError').textContent = "Registration functionality not implemented";
+    });
+  </script>
+</body>
+</html>
