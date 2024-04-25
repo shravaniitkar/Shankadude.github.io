@@ -69,7 +69,7 @@ function getMovies(myJson){
                     <b><i class="fas fa-clock"></i></b> ${myJson.runtime}
                 </div>
                 <div class="release-date">
-                    <b>Raleased</b>: ${myJson.release_date}
+                    <b>Released</b>: ${myJson.release_date}
                 </div>
             </div>
 
